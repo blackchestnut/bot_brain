@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe TelegramBrain::Bot::Chat do
-  let(:chat) { TelegramBrain::Bot::Chat.new(chat_id) }
+describe BotBrain::Chat do
+  let(:chat) { BotBrain::Chat.new(chat_id) }
   let(:chat_id) { 123 }
 
   describe '#id' do

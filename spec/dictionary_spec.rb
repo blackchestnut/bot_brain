@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe TelegramBrain::Bot::Dictionary do
+describe BotBrain::Dictionary do
   describe '#get_command' do
     subject { dictionary.get_command(message) }
-    let(:dictionary) { TelegramBrain::Bot::Dictionary.new(commands) }
-    let(:message) { TelegramBrain::Bot::Message.new(data) }
+    let(:dictionary) { BotBrain::Dictionary.new(commands) }
+    let(:message) { BotBrain::Message.new(data) }
     let(:data) do
       { 'text' => '/help' }
     end
@@ -14,14 +14,14 @@ describe TelegramBrain::Bot::Dictionary do
 
       it { is_expected.not_to be_nil }
       it do
-        is_expected.to be_a TelegramBrain::Bot::Commands::UnknownCommand
+        is_expected.to be_a BotBrain::Commands::UnknownCommand
       end
     end
 
     context 'with commands' do
       let(:commands) { [command_1, command_2] }
-      let(:command_1) { TelegramBrain::Bot::Commands::Command.new('/start') }
-      let(:command_2) { TelegramBrain::Bot::Commands::Command.new('/help') }
+      let(:command_1) { BotBrain::Commands::Command.new('/start') }
+      let(:command_2) { BotBrain::Commands::Command.new('/help') }
 
       it { is_expected.to be command_2 }
     end

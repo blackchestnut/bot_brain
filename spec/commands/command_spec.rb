@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe TelegramBrain::Bot::Commands::Command do
-  let(:command) { TelegramBrain::Bot::Commands::Command.new('/start') }
-  let(:message) { TelegramBrain::Bot::Message.new(data) }
+describe BotBrain::Commands::Command do
+  let(:command) { BotBrain::Commands::Command.new('/start') }
+  let(:message) { BotBrain::Message.new(data) }
   let(:data) { { 'text' => text } }
 
   describe '#can_answer?' do

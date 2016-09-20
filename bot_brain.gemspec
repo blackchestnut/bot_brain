@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'telegram_brain/version'
+require 'bot_brain/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "telegram_brain"
-  spec.version       = TelegramBrain::VERSION
+  spec.name          = "bot_brain"
+  spec.version       = BotBrain::VERSION
   spec.authors       = ["blackchestnut"]
   spec.email         = ["alexander.kalinichev@gmail.com"]
 
   spec.summary       = %q{Simple Ruby class library for Telegram's Bot API}
-  spec.homepage      = "https://github.com/blackchestnut/telegram_brain"
+  spec.homepage      = "https://github.com/blackchestnut/bot_brain"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe TelegramBrain do
+describe BotBrain do
   it 'has a version number' do
-    expect(TelegramBrain::VERSION).not_to be nil
+    expect(BotBrain::VERSION).not_to be nil
   end
 
-  class StartCommand < TelegramBrain::Bot::Commands::Command
+  class StartCommand < BotBrain::Commands::Command
     def initialize
       super('/start')
     end
@@ -13,10 +13,10 @@ describe TelegramBrain do
 
   describe '#answer' do
     subject { brain.answer(raw_message) }
-    let(:brain) { TelegramBrain::Brain.new(token, dictionary) }
+    let(:brain) { BotBrain::Brain.new(token, dictionary) }
     let(:token) { 'fake_token' }
     let(:command) { StartCommand.new }
-    let(:dictionary) { TelegramBrain::Bot::Dictionary.new([command], nil) }
+    let(:dictionary) { BotBrain::Dictionary.new([command], nil) }
     let(:raw_message) do
       {
         'text' => '/start',

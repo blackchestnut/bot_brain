@@ -1,13 +1,13 @@
 require 'telegram/bot'
 
-require 'telegram_brain/version'
-require 'telegram_brain/bot/chat'
-require 'telegram_brain/bot/dictionary'
-require 'telegram_brain/bot/message'
-require 'telegram_brain/bot/commands/command'
-require 'telegram_brain/bot/commands/unknown_command'
+require 'bot_brain/version'
+require 'bot_brain/chat'
+require 'bot_brain/dictionary'
+require 'bot_brain/message'
+require 'bot_brain/commands/command'
+require 'bot_brain/commands/unknown_command'
 
-module TelegramBrain
+module BotBrain
   class Brain
     def initialize(token, dictionary)
       @token = token
@@ -16,7 +16,7 @@ module TelegramBrain
     end
 
     def answer(raw_message)
-      message = TelegramBrain::Bot::Message.new(raw_message)
+      message = BotBrain::Message.new(raw_message)
       add_to_chat(message)
       command = @dictionary.get_command(message)
       text = command.answer(message)
@@ -31,7 +31,7 @@ module TelegramBrain
     end
 
     def find_or_create_chat(chat_id)
-      @chats[chat_id] || @chats[chat_id] = Bot::Chat.new(chat_id)
+      @chats[chat_id] || @chats[chat_id] = BotBrain::Chat.new(chat_id)
     end
 
     def api
